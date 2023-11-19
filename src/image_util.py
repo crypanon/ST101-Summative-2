@@ -28,9 +28,17 @@ def show(img):
         image to show
     return: None
     '''
+    if type(img) is not np.ndarray:
+       raise TypeError("Input must be a numpy ndarray")
+
+    if not img.ndim == 3 or not img.dtype == np.uint8:
+       raise TypeError("Input must be a 3d numpy ndarray with dtype np.uint8")
+
+    if img.size == 0:
+       raise ValueError("Input array must be non zero")
     dpi = 120
     height, width, _ = img.shape
     figsize = (width/dpi, height/dpi)
     fig = plt.figure(figsize = figsize)
     plt.axis('off')
-    plt.imshow(img)
+    plt.imshow(img) 
