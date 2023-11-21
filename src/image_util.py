@@ -41,4 +41,27 @@ def show(img):
     figsize = (width/dpi, height/dpi)
     fig = plt.figure(figsize = figsize)
     plt.axis('off')
-    plt.imshow(img) 
+    plt.imshow(img)     
+    
+def repetition(img, m, n):
+    '''
+    Create an image where the image is repeated (m x n)times
+    img: non-empty 3d numpy ndarray with dtype np.uint8
+        image to repeat
+    m: number of rows 
+    n: number of columns 
+    return: 3d numpy ndarray with dtype np.uint8
+        given image repeated m x n times
+    '''
+    if not isinstance(img, np.ndarray):
+        raise TypeError("Input image must be a numpy array")
+    if img.ndim != 3 or img.dtype != np.uint8:
+        raise ValueError("Input image must be a non-empty 3d numpy ndarray with dtype np.uint8")
+    if img.size == 0:
+        raise ValueError("Input image must be non-empty")
+    if not all(isinstance(i, int) and i > 0 for i in [m, n]):
+        raise ValueError("m and n must be positive integers")
+
+    h, w, _ = img.shape
+    repeated_img = np.tile(img, (m, n, 1))
+    return repeated_img 
