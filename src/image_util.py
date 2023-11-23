@@ -43,15 +43,14 @@ def show(img):
     plt.axis('off')
     plt.imshow(img)     
     
-def repetition(img, m, n):
+def repetition(img, rows, cols):
     '''
-    Create an image where the image is repeated (m x n)times
-    img: non-empty 3d numpy ndarray with dtype np.uint8
-        image to repeat
-    m: number of rows 
-    n: number of columns 
-    return: 3d numpy ndarray with dtype np.uint8
-        given image repeated m x n times
+    Create an image where the image is repeated (rows x cols) times
+    Args:
+    img: non-empty 3d numpy ndarray with dtype np.uint8, image to repeat
+    rows: number of rows 
+    cols: number of columns 
+    Returns: 3d numpy ndarray with dtype np.uint8, given image repeated rows x cols times
     '''
     if not isinstance(img, np.ndarray):
         raise TypeError("Input image must be a numpy array")
@@ -59,9 +58,18 @@ def repetition(img, m, n):
         raise ValueError("Input image must be a non-empty 3d numpy ndarray with dtype np.uint8")
     if img.size == 0:
         raise ValueError("Input image must be non-empty")
-    if not all(isinstance(i, int) and i > 0 for i in [m, n]):
+    if not all(isinstance(i, int) and i > 0 for i in [rows, cols]):
         raise ValueError("m and n must be positive integers")
 
+
     h, w, _ = img.shape
-    repeated_img = np.tile(img, (m, n, 1))
-    return repeated_img 
+    # Create a blank image of the correct scaled dimensions
+    repeated_image = np.zeros((h*rows,w*cols,3))
+
+    # Cycling through larger image by smaller image dimensions
+    for i in range(rows):
+        for j in range(cols):
+            # Loop over all copies of image by height and width
+            repeated_image[i*h:(i+1)*h,j*w:(j+1)*w,:] = img 
+            
+    return repeated_image.astype(dtype=np.uint8)
