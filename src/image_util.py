@@ -1,7 +1,7 @@
 '''
 This module loads, manipulate, and displays images
+Includes repetition function for tesselating images
 
-please add your functions in this .py file (and update this docstring)
 '''
 
 from PIL import Image
@@ -36,6 +36,7 @@ def show(img):
 
     if img.size == 0:
        raise ValueError("Input array must be non zero")
+       
     dpi = 120
     height, width, _ = img.shape
     figsize = (width/dpi, height/dpi)

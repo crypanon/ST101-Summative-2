@@ -7,7 +7,7 @@
 
 ---
 
-Candidate numbers of _all_ group members (NOT the student ID): ________
+Candidate numbers of _all_ group members (NOT the student ID): 30597, 32192, 33022, 26188
 
 Note:
 * Candidate numbers are _5-digit_ and you can find on LSEforYou: <p>

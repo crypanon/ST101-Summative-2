@@ -8,7 +8,7 @@ Requirements for testing
 * "Automate" the tests with the use of an `assert` statement
 
 Please state where you put your testing below:
-* _____________
+* test.ipynb
 
 ---
 
@@ -19,7 +19,7 @@ Requirements for using assertion to check internal logic
 * Ensure meaningful error messages are used with `assert`
 
 Please state where you have put the assertion statement to check internal logic below:
-* _____________
+* Can be found in image_part_a.ipynb, image_part_b.ipynb.
 
 ---
 
@@ -28,7 +28,5 @@ Please state where you have put the assertion statement to check internal logic 
 Address all the action points from your feedback for problem set 5 that are relevant to the problem set 8. If your group members are from different problem set 5 groups, a union of all relevant action points should be addressed.
 
 Please list all action points from your feedback for problem set 5 below
-* ________________
-* ________________
-* ________________
-* ....
+* Ensure instructions understood properly.
+* Use more docstrings and explanation
